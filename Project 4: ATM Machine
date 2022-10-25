@@ -1,0 +1,81 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+#Saim Khan - 100876325
+
+#ATM.py
+
+#Initialize the variables
+balance = 0.0
+otherBalance = 0.0
+
+def getBalance():
+    return balance
+def getOtherBalance():
+    return otherBalance
+def printBalances():
+    print("Balance: ${0:.2f}".format(getBalance())," OtherBalance: ${0:.2f}".format(getOtherBalance()))
+
+#Use the deposit function to deposit money into the account
+def deposit(money):
+    global balance
+    if money>=0:
+        balance+=money
+        print("Money deposit successful!")
+    else:
+        print("Invalid input! Money entered should be greater than zero")
+
+#Use the withdraw fucntion to withdraw money out of the account
+def withdraw(money):
+    global balance
+    if(money>=0 and money<=balance):
+        balance-=money
+        print("Money is withdrawn successfully!")
+    else:
+        print("Invalid input! Money entered should be greater than zero and less than or equal to balance")
+      
+#Use the transfer fucntion to transfer money between the accounts
+def transfer(money):
+    global balance,otherBalance
+    if(money>=0 and money<=balance):
+        balance-=money
+        otherBalance+=money
+        print("Money has been transferred from balance to otherBalance")
+    else:
+        print("Invalid input! Money entered should be greater than zero and less than or equal to balance")
+        
+#Program is in in a loop and will ask user to perform actions as many times as they want        
+while(True):
+    print("1. Print only the balance")
+    print("2. Print only the otherBalance")
+    print("3. Print both the balance and otherBalance")
+    print("4. Deposit money into balance")
+    print("5. Withdraw money from balance")
+    print("6. Transfer money from balance to otherBalance")
+    print("7. Exit\n")
+    
+    choice=int(input("Enter your Choice: "))
+    
+#Picks the specifc function based on the user input
+    if(choice == 1):
+        print("Balance: $",getBalance())
+    elif(choice == 2):
+        print("OtherBalance: $",getOtherBalance())
+    elif(choice == 3):
+        printBalances();
+    elif(choice == 4):
+        money = int(input("Enter the amount to be deposited: $"))
+        deposit(money)
+    elif(choice == 5):
+        money = int(input("Enter the amount to be withdrawn: $"))
+        withdraw(money)
+    elif(choice == 6):
+        money = int(input("Enter the amount to be transferred: $"))
+        transfer(money)
+    elif(choice == 7):
+        
+        print("GoodBye!") 
+        exit()
