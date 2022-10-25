@@ -1,0 +1,29 @@
+
+
+#Saim Khan - 100876325
+
+#Question 2
+
+def financial_assistance(income,child):
+    if(income>30000 and income<= 40000 and child>=3):
+        print("The amount of financial assistance is: $",str(1000*child))
+    
+    elif(income>=20000 and income<= 30000 and child>=2):
+        print("The amount of financial assistance is: $",str(1500*child))
+
+    elif(income< 20000):
+        print("The amount of financial assistance is: $",str(1000*child))
+
+    else:
+        print("No financial assistance available")
+        
+
+sentinel = 1 #At -10 the program terminates
+while(sentinel != -10):
+#user input
+    family_income = int(input("Enter the annual family income: $"))
+    children = int(input("Enter the number of children in the family:"))
+    financial_assistance(family_income, children)
+    print("Would you like to calculate financial assistance again for another family?")
+    print("Enter -10 to exit and 1 to continue")
+    sentinel = int(input())
