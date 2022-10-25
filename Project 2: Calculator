@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
+#Saim Khan - 100876325
+
+#Calculator.py
+
+#1.
+
+#Define
+oper = '' 
+result = 0
+while oper != 'exit' and oper != 'stop' : 
+    
+#Ask for user input
+#Break loop if user inputs "exit" at any time
+
+    print("Enter which operation would you like to perform?")
+    oper = input("Enter any of these symbols +,-,*,/,** or enter one of add, subtract, multiply, divide, exponent: ")
+    if oper == 'exit' or oper == 'stop' :
+        break
+        
+    num1 = (input("Enter First Number: "))
+    if num1 == 'exit'or num1 == 'stop' :
+        break
+    elif num1 == '' :
+        num1 = result  
+        
+    num2 = (input("Enter Second Number: "))
+    if num2 == 'exit' or num2 == 'stop':
+        break
+    elif num2 == '' :
+        num2 = result
+    
+        
+#Converts integer into float
+    num1 = float(num1)
+    num2 = float(num2)
+
+#Identify the operation
+    if (oper == '+') or (oper == 'add'):
+        result = num1 + num2
+    elif (oper == '-') or (oper == 'subtract'):
+        result = num1 - num2
+    elif (oper == '*') or (oper == 'multiply'):
+        result = num1 * num2
+    elif (oper == '/') or (oper == 'divide'):
+        result = num1 / num2
+    elif (oper == '**')  or (oper == 'exponent') :
+        result = 1
+        for x in range(int(num2)):
+            result = result * num1
+    else:
+        print("Input operation is not recognized")
+        
+    print("The result is", num1, oper , num2, "=", result)
+    
