@@ -1,0 +1,131 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[66]:
+
+
+#Saim Khan - 100876325
+#Question 1: Table.py
+
+col_a = 0 #this variable will hold the values for column a 
+col_b = 1 #this variable will hold the values of column b 
+
+count = 0 #this variable is used to keep count of the number of times we loop through to add values to the rows and columns of the table 
+
+
+print("a\t b\t a ** b")
+
+#this loop increments and adds values for each row and column
+for count in range(0,5):
+    col_a += 1 #incrementing column a values 
+    col_b += 1 #incrementing column b values 
+    power = (col_a)**(col_b) #calculating a^b 
+    
+    print(col_a,"\t",col_b,"\t",power)
+
+
+# In[1]:
+
+
+# Question 2: SumOfDigits.py
+
+number = int(input("Enter a number between 0 and 1000: ")) #ask for user input of a number
+user_sum = 0 #holds the sum of the digits entered by the user 
+
+
+while(number>0):
+    user_sum += (number%10) #divide user input by 10 to get single digit which is added to the digit sum variable 
+    number //= 10 #use floor division to be able to round to the nearest whole integer to eliminate the variable just added to the sum 
+    
+print("The sum of digits is", user_sum) 
+
+
+# In[4]:
+
+
+#Question 3: NumYearsDays.py
+
+n = int(input("Enter the number of minutes: ")) #ask for user input for minutes 
+
+years = n // (24 * 60 * 365) 
+days = (n % (24 * 60 * 365)) // (24 * 60)
+
+print(n, "minutes is approximately", years, "years and", days, "days")
+
+
+# In[16]:
+
+
+#Question 4: Health.py
+
+weight_lb = eval(input("Enter weight in pounds: ")) #ask for user input for weight  
+height_in = eval(input("Enter height in inches: ")) #ask for user input for height
+
+weight_kg = weight_lb/2.205 #to get weight in kg you must use the generic formula and divide weight in pounds by 2.205 
+height_m = height_in/39.37 #to get height in meters you must use the generic formula and divide height in inches by 39.37
+
+BMI = weight_kg/(height_m**2) #calculate the BMI with formula given
+
+print("BMI is ", round(BMI,2)) #print BMI to 2 decimal places 
+
+
+# In[28]:
+
+
+#Question 5: PayRoll.py
+
+#Asking for user input for payroll statement 
+
+name = input('Enter the employee name: ')
+
+hours_worked = int(input('Enter the number of hours worked in a week: '))
+
+hourly_pay_rate = float(input('Enter the hourly pay rate: '))
+
+federal_tax_rate = float(input('Enter federal tax withholding rate: '))
+
+state_tax_rate = float(input('Enter state tax witholding rate: '))
+
+
+###############################END OF USER INPUT#########################################
+#Calculating payroll statement values 
+
+gross_pay = hours_worked * hourly_pay_rate
+
+federal_tax_witholding = gross_pay * (federal_tax_rate)
+
+state_tax_witholding = gross_pay * (state_tax_rate)
+
+total_deduction = federal_tax_witholding + state_tax_witholding 
+
+net_pay = gross_pay - total_deduction 
+
+##############################PRINT STATEMENTS############################################
+#Printing the employee payroll statement as specified 
+
+print('\nPayroll Statement')
+
+print('Employee Name:', name)
+
+print('Hours Worked:', hours_worked)
+
+print('Pay Rate: $', hourly_pay_rate)
+
+print("Gross Pay: $", gross_pay)
+
+print("Deductions:")
+
+print("\tFederal Witholding (", federal_tax_rate*100, "%):", federal_tax_witholding)
+
+print("\tState Witholding (", state_tax_rate*100, "%):", state_tax_witholding)
+
+print("\tTotal Deduction: ", round(total_deduction,2))
+
+print("Net Pay: " , round(net_pay,2))
+
+
+# In[ ]:
+
+
+
+
