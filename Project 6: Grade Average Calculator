@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+#Saim Khan - 100876325
+
+#Question 3
+
+#Define a function to calculate average
+def calc_average(marks):
+    sum=0
+    for i in marks: #caluclate the sum
+        sum+=i
+    avg=sum/len(marks) #calculates then returns average grade
+    return avg
+    
+#Define a function to detrmine student grade/determine_grade 
+def determine_grade(mark):
+    if(mark>=90 and mark<=100):
+        return 'A'
+    elif(mark>=80 and mark <=89):
+        return 'B'
+    elif(mark>=70 and mark<=79):
+        return 'C'
+    elif(mark>=60 and mark <=69):
+        return 'D'
+    elif(mark<60):
+        return 'F'
+    else:
+        return "Not recognized"
+
+marks=[]
+print("Enter a 5 test marks: ") #understands the score and ranks it
+for i in range(5):
+    mark=int(input())
+    marks.append(mark)
+    
+avg=calc_average(marks) #print average
+print("The average of marks is: ",avg)
+
+print("Marks\tGrade") #print the marks and the grades of the students
+for i in marks:
+    print(i,"\t",determine_grade(i))
+  
+
