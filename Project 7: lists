@@ -1,0 +1,66 @@
+#Lists.py
+
+
+def checkEvenOdd(numberList):
+    oddlist=[] #2 empty lists
+    evenlist=[]
+
+    for i in numberList: #Append to even or odd list
+        if(i%2==0):
+            evenlist.append(i)
+        else:
+            oddlist.append(i)
+    return oddlist, evenlist
+
+#Caluclate the length of the lists
+def calculateAverage(numberList):
+   sum1=0
+   sum2=0
+   oddlist, evenlist= checkEvenOdd(numberList)
+   oddlen=len(oddlist)
+   evenlen=len(evenlist)
+
+#Finds the sum of the odd and even number
+   for i in oddlist:
+       sum1=sum1+i
+   avgodd=sum1/oddlen #Calculate the average for odd and even list
+   for i in evenlist:
+       sum2=sum2+i
+   avgeven=sum2/evenlen
+   return avgodd, avgeven
+
+
+def printResult(oddavg, evenavg): #Displays the average of all the values
+   print("The average of sublist containing odd numbers")
+   print(oddavg)
+   print("The average of sublist containing even numbers")
+   print(evenavg)
+    
+def calculatePow(numberList):  #Calculates power
+    powlist=[]  #Power list is now empty
+    index=0
+    for num in numberList:
+        powlist.append(pow(num, index))
+        index=index+1
+    return powlist
+print("Enter the numbers(press -1 to stop input)")
+numberList=[]
+while(1):
+    n=int(input(""))
+    if(n==-1):
+        break
+    numberList.append(n)
+print("The inputted list is as follows ")
+print(numberList)
+
+oddlist, evenlist= checkEvenOdd(numberList)  #The fucntion will check for even and odd
+print("The sub list containing odd numbers") #Prints the list of even and odd numbers
+print(oddlist)
+print("The sub list containing even numbers")
+print(evenlist)
+oddavg, evenavg=calculateAverage(numberList)
+printResult(oddavg, evenavg) #Prints the average of the lists
+
+powlist=calculatePow(numberList) #Calculates the number in the list to the power of thier index
+print("The power list is as follows")
+print(powlist)
