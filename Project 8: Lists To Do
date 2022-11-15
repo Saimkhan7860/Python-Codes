@@ -1,0 +1,73 @@
+import datetime
+
+def checkItemExists(taskName):
+    global ToDoList
+    for task in ToDoList:
+        if taskName == task[0]:
+            return True
+    return False
+
+
+def takeSecond(element):
+    return element[1]
+
+
+def addNewItems():
+    global ToDoList
+    task = input("\nEnter the name of the task : ")  #You need to ask input from the user to enter the name of the task
+    date_time  = input("Enter the task completion date (yyyy/mm/dd HH:MM:SS) : ") 
+    
+    datetime_obj = datetime.datetime.strptime(date_time,"%Y/%m/%d %H:%M:%S")
+
+    if datetime_obj<datetime.datetime.now():
+        print("Time entered is in the past! Select the options again")
+        return
+
+    if checkItemExists(task):     
+        print("Task already exists! Select the options again")
+        return
+    
+
+    ToDoList.append((task,datetime_obj))
+    print("\nTask added successfully")
+    
+
+    ToDoList.sort(key = takeSecond)    
+    return
+
+
+def printListItems():
+    global ToDoList
+    print("")
+    for ind,task in enumerate(ToDoList):    #Using enumerate fucntion
+        print(f"{ind}. {task[1]} - {task[0]}")
+    return
+
+
+def removeListItems():
+    global ToDoList
+    index_to_delete = int(input("Enter which task would you like to delete [select index wise starting from 0] : "))
+    
+    del ToDoList[index_to_delete]
+    print("Task deleted successfully")
+
+ToDoList = []
+
+
+while True:
+    print("\n1. Enter a new To do items")
+    print("2. Print the list of all To do items")
+    print("3. Remove a To do item")
+    print("4. exit the program")
+    choice  = int(input("\nEnter a choice : "))
+
+    if choice == 1:
+        addNewItems()
+    elif choice == 2:
+        printListItems()
+    elif choice == 3:
+        removeListItems()
+
+    elif choice == 4:
+        print("End of program")
+        break
